@@ -2,11 +2,12 @@ import catalog from "./cards.json";
 const { cards, decks } = catalog;
 
 // TODO: Start here
-export default function DeckSelect({ selectDeck }) {
+export default function DeckSelect({ selectDeck, setIsAddingCards }) {
   return (
     <div className="flex">
-      <aside className="flex w-64 text-center">
+      <aside className="w-64 text-center">
         <p className="mx-auto">Welcome!</p>
+        <button className="mx-auto" onClick={() => { setIsAddingCards(true); }}>Add Cards</button>
       </aside>
       <div>
         <h3>Select your starting deck.</h3>
