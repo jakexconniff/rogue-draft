@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./App.css";
 import DeckSelect from "./DeckSelect";
 import CardSelections from "./CardSelections";
@@ -9,13 +9,10 @@ import addCard from "./lib/addCard";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import AddCards from "./AddCards";
-
-const supabase = createClient(
-  "https://pqydowgqthtdvjtuiaiz.supabase.co",
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+import SupabaseContext from './SupabaseContext';
 
 function App() {
+  const supabase = useContext(SupabaseContext);
   const [session, setSession] = useState(null);
   // Should be using React Router, add later. (Want to stay focused)
   const [addingCards, setIsAddingCards] = useState(false);
